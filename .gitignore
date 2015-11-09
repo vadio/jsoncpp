@@ -13,6 +13,8 @@
 #/version
 #/include/json/version.h
 
+.DS_Store
+
 # MSVC project files:
 *.sln
 *.vcxproj
