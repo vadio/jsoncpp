@@ -1234,6 +1234,9 @@ bool OurReader::readToken(Token& token) {
     ok = readStringSingleQuote();
     break;
     } // else continue
+#ifdef __llvm__
+  [[clang::fallthrough]];
+#endif
   case '/':
     token.type_ = tokenComment;
     ok = readComment();
