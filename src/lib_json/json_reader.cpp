@@ -226,6 +226,9 @@ bool Reader::readValue() {
       currentValue().setOffsetLimit(current_ - begin_);
       break;
     } // Else, fall through...
+#ifdef __llvm__
+  [[clang::fallthrough]];
+#endif
   default:
     currentValue().setOffsetStart(token.start_ - begin_);
     currentValue().setOffsetLimit(token.end_ - begin_);
@@ -1175,6 +1178,9 @@ bool OurReader::readValue() {
       currentValue().setOffsetLimit(current_ - begin_);
       break;
     } // else, fall through ...
+#ifdef __llvm__
+  [[clang::fallthrough]];
+#endif
   default:
     currentValue().setOffsetStart(token.start_ - begin_);
     currentValue().setOffsetLimit(token.end_ - begin_);
